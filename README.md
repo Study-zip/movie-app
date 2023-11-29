@@ -96,6 +96,81 @@ ReactJS는 DOM 변경을 위해 Virtual DOM이라는 개념을 도입한다. 실
 
 이 과정을 Reconciliation 재조정 또는 Diffing이라고 부른다.
 
+### props
+
+- 반복되는 컴포넌트를 재사용할 수 있게 해준다.
+- 컴포넌트의 인자를 전달받아 사용한다. 이름, 갯수 상관없이 사용 가능하다.
+- 코드를 간결하게 만든다.
+
+```tsx
+const SaveBtn = () => {
+  return (
+    <button
+      style={{
+        backgroundColor: "tomato",
+        color: "#fff",
+        padding: "10px 20px",
+        border: 0,
+        borderRadius: 10,
+      }}
+    >
+      Save Changes
+    </button>
+  );
+};
+const ConfirmBtn = () => {
+  return (
+    <button
+      style={{
+        backgroundColor: "tomato",
+        color: "#fff",
+        padding: "10px 20px",
+        border: 0,
+        borderRadius: 10,
+      }}
+    >
+      Confirm
+    </button>
+  );
+};
+```
+
+```tsx
+import { FC } from "react";
+
+interface BtnProps {
+  text: string;
+}
+
+const Btn: FC<BtnProps> = ({ text }) => {
+  return (
+    <button
+      style={{
+        backgroundColor: "tomato",
+        color: "#fff",
+        padding: "10px 20px",
+        border: 0,
+        borderRadius: 10,
+      }}
+    >
+      {text}
+    </button>
+  );
+};
+const App = () => {
+  return (
+    <>
+      <Btn text="Save Changes" />
+      <Btn text="Continue" />
+    </>
+  );
+};
+
+export default App;
+```
+
+Tsx 문법으로 사용으로 Btn 컴포넌트를 `FC(Functional Component)`라는 함수형 컴포넌트 타입과 인터페이스를 사용하여 props를 타입화했다.
+
 ### 폴더 구조
 
 - basic : 웹 서비스 제작 전 React 기초 공부 코드를 모아둔 폴더.
