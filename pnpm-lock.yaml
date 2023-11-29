@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  movie-app:
+    specifier: 'link:'
+    version: 'link:'
   react:
     specifier: ^18.2.0
     version: 18.2.0
