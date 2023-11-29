@@ -1,12 +1,15 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 interface BtnProps {
   text: string;
+  onClick?: () => void;
 }
 
-const Btn: FC<BtnProps> = ({ text }) => {
+const Btn: FC<BtnProps> = ({ text, onClick }) => {
+  console.log(text, "was rendered");
   return (
     <button
+      onClick={onClick}
       style={{
         backgroundColor: "tomato",
         color: "#fff",
@@ -20,9 +23,11 @@ const Btn: FC<BtnProps> = ({ text }) => {
   );
 };
 const App = () => {
+  const [value, setValue] = useState("Save Changes");
+  const changeValue = () => setValue("Revert Changes");
   return (
     <>
-      <Btn text="Save Changes" />
+      <Btn text={value} onClick={changeValue} />
       <Btn text="Continue" />
     </>
   );
