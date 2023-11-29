@@ -2,6 +2,12 @@
 
 [ReactJS로 영화 웹 서비스 만들기](https://nomadcoders.co/react-for-beginners?utm_medium=website&utm_source=webpage&utm_campaign=roadmap)에서의 코드와 내용을 정리한 repository입니다.
 
+### ✍️ 블로그 포스팅
+
+강의를 들으며 더욱 공부하고 싶은 부분이 생겼을 때 블로그 주제로 선정하여 포스팅했습니다.
+
+[오늘은 TSX가 화내지 않기를 바라며 | React, TypeScript에서의 Event handler 처리 방식](https://nami-socket.tistory.com/35)
+
 ### React가 해결해주는 문제는 무엇인가?
 
 기술이 고치려고 하는 문제를 이해하면 그 기술을 더 잘 이해하게 된다.
