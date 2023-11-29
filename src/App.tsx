@@ -1,23 +1,29 @@
-import React, { useState } from "react";
-import MinutesToHours from "./components/MinutesToHours";
-import KmToMiles from "./components/KmToMiles";
+import { FC } from "react";
 
+interface BtnProps {
+  text: string;
+}
+
+const Btn: FC<BtnProps> = ({ text }) => {
+  return (
+    <button
+      style={{
+        backgroundColor: "tomato",
+        color: "#fff",
+        padding: "10px 20px",
+        border: 0,
+        borderRadius: 10,
+      }}
+    >
+      {text}
+    </button>
+  );
+};
 const App = () => {
-  const [index, setIndex] = useState(0);
-  const onSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setIndex(Number(event.target.value));
-  };
   return (
     <>
-      <h1>Super Converter</h1>
-      <select value={index} onChange={onSelect}>
-        <option value={0}>Select Your Units</option>
-        <option value={1}>Minutes & Hours</option>
-        <option value={2}>Km & Miles</option>
-      </select>
-      <hr />
-      {index === 1 ? <MinutesToHours /> : null}
-      {index === 2 ? <KmToMiles /> : null}
+      <Btn text="Save Changes" />
+      <Btn text="Continue" />
     </>
   );
 };
