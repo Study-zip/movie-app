@@ -4,9 +4,9 @@
 
 ### ✍️ 블로그 포스팅
 
-강의를 들으며 더욱 공부하고 싶은 부분이 생겼을 때 블로그 주제로 선정하여 포스팅했습니다.
+> 강의를 들으며 더욱 공부하고 싶은 부분이 생겼을 때 블로그 주제로 선정하여 포스팅했습니다.
 
-[오늘은 TSX가 화내지 않기를 바라며 | React, TypeScript에서의 Event handler 처리 방식](https://nami-socket.tistory.com/35)
+- [오늘은 TSX가 화내지 않기를 바라며 | React, TypeScript에서의 Event handler 처리 방식](https://nami-socket.tistory.com/35)
 
 ### React가 해결해주는 문제는 무엇인가?
 
@@ -95,3 +95,7 @@ ReactJS는 DOM 변경을 위해 Virtual DOM이라는 개념을 도입한다. 실
 상태 변경이 발생할 때마다 가상 DOM 트리 생성 후 변경된 부분을 파악한 후 변경 사항만 실제 DOM에 반영한다.(변화가 일어난 부분의 자식 컴포넌트 들 또한)
 
 이 과정을 Reconciliation 재조정 또는 Diffing이라고 부른다.
+
+### 폴더 구조
+
+- basic : 웹 서비스 제작 전 React 기초 공부 코드를 모아둔 폴더.
