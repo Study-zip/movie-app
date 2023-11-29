@@ -171,6 +171,33 @@ export default App;
 
 Tsx 문법으로 사용으로 Btn 컴포넌트를 `FC(Functional Component)`라는 함수형 컴포넌트 타입과 인터페이스를 사용하여 props를 타입화했다.
 
+- 컴포넌트의 props는 html태그 자체에 이벤트 리스너를 넣는 것과는 전혀 다른 것이다.
+
+`<Btn onClick={changeValue} />`
+
+- onClick이라는 props의 이름일 뿐이다. 이벤트 리스너를 적용하고 싶다면 해당 컴포넌트의 props로 콜백함수를 전달하고, 해당하는 button 엘리먼트 내부에 onClick을 직접 설정해야함.
+  ➡️ props는 부모에서 자식으로 데이터를 넘길 때 사용하는 argument의 역할임.
+
+### `React.memo`
+
+부모 컴포넌트의 state를 변경하면 자식 컴포넌트들도 Re-rendering된다. 애플리케이션이 커질수록 불필요한 리렌더링이 발생할 확률이 커지게 됨.
+
+`React.memo()`: props 변경을 감지하고 바뀌지 않는 한 리렌더링 않도록 하는 고차 컴포넌트
+
+```tsx
+const MemorizedBtn = React.memo(Btn);
+const App = () => {
+  const [value, setValue] = useState("Save Changes");
+  const changeValue = () => setValue("Revert Changes");
+  return (
+    <>
+      <MemorizedBtn text={value} onClick={changeValue} />
+      <MemorizedBtn text="Continue" />
+    </>
+  );
+};
+```
+
 ### 폴더 구조
 
 - basic : 웹 서비스 제작 전 React 기초 공부 코드를 모아둔 폴더.
