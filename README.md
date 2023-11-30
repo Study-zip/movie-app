@@ -198,6 +198,25 @@ const App = () => {
 };
 ```
 
+### PropTypes (static propTypes)
+
+static propTypes는 React 컴포넌트가 받을 수 있는 props의 예상 타입을 정의하는 방법이다. 컴포넌트가 올바른 데이터 유형으로 사용되도록 하여 오류를 방지하고 애플리케이션의 안정성을 향상시킬 수 있다.
+
+prop-types 라이브러리를 사용, string, number, boolean 등과 같은 다양한 데이터 타입에 대한 검증을 한다.
+
+```tsx
+Btn.propTypes = {
+  text: PropTypes.string,
+  fontSize: PropTypes.number,
+};
+```
+
+**TypeScript vs PropTypes**
+
+static proptypes는 개발 중에 오류를 잡는 Rendering Type checking Tool이다. 성능상의 이유로 개발 모드(Development mode) 에서만 확인되며 프로덕션 환경에서는 검사되지 않는다.
+
+⚠️ 최신 React docs에서는 PropTypes 대신 TypeScript를 쓸 것을 권장한다.
+
 ### 폴더 구조
 
 - basic : 웹 서비스 제작 전 React 기초 공부 코드를 모아둔 폴더.
