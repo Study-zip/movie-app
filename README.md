@@ -217,6 +217,62 @@ static proptypes는 개발 중에 오류를 잡는 Rendering Type checking Tool�
 
 ⚠️ 최신 React docs에서는 PropTypes 대신 TypeScript를 쓸 것을 권장한다.
 
+### useEffect(callback, [dep])
+
+우리가 특정 코드의 실행을 component가 맨처음 그려질 때만 실행하고 그 이상은 제한 하고 싶을 때 !
+
+두 개의 argument를 받는다.
+
+callback : 사이드 이펙트 로직을 구현하는 함수.
+deps : 사이드 이펙트 로직이 실행되어야 하는 의존성 배열.
+
+**과정 설명**
+
+1. 컴포넌트가 처음 렌더링 될 때 callback 함수가 호출된다.
+2. callback 함수가 반환되면 React는 deps 배열에 있는 값이 변경되었는지 확인한다.
+3. deps 배열에 있는 값이 변경되면 callback 함수가 다시 호출된다.
+4. deps 배열에 있는 값이 변경되지 않았으면 호출되지 않음!
+
+```tsx
+import { useState, useEffect, ChangeEvent } from "react";
+
+const App = () => {
+  const [counter, setValue] = useState(0);
+  const [keyword, setKeyword] = useState("");
+  const onClick = () => setValue((prev) => prev + 1);
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(event.target.value);
+  };
+  useEffect(() => {
+    console.log("once");
+  }, []);
+  useEffect(() => {
+    console.log("I run when 'keyword' changes");
+  }, [keyword]);
+  useEffect(() => {
+    console.log("I run when 'counter' changes");
+  }, [counter]);
+  return (
+    <>
+      <div>
+        <input
+          value={keyword}
+          onChange={onChange}
+          type="text"
+          placeholder="Search here"
+        ></input>
+        <h1>{counter}</h1>
+        <button onClick={onClick}>Click</button>
+      </div>
+    </>
+  );
+};
+
+export default App;
+```
+
+⚠️ useEffect 훅은 렌더링과는 별도로 실행된다. 렌더링이 완료된 후에 실행되어 렌더링에 필요한 값을 참조할 수 없음. + 렌더링 성능에 영향을 미치지 않음.
+
 ### 폴더 구조
 
 - basic : 웹 서비스 제작 전 React 기초 공부 코드를 모아둔 폴더.
