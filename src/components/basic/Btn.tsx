@@ -23,13 +23,13 @@ const Btn: FC<BtnProps> = ({ text, fontSize }) => {
   );
 };
 
-// const App = () => {
-//   return (
-//     <>
-//       <Btn text="Save Changes" fontSize={18} />
-//       <Btn text="Continue" />
-//     </>
-//   );
-// };
+const BtnTest = () => {
+  return (
+    <>
+      <Btn text="Save Changes" fontSize={18} />
+      <Btn text="Continue" />
+    </>
+  );
+};
 
-// export default App;
+export default BtnTest;
