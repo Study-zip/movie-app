@@ -1,34 +1,19 @@
-import { FC, useState } from "react";
+import { useState, useEffect } from "react";
 
-interface BtnProps {
-  text: string;
-  onClick?: () => void;
-}
-
-const Btn: FC<BtnProps> = ({ text, onClick }) => {
-  console.log(text, "was rendered");
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        backgroundColor: "tomato",
-        color: "#fff",
-        padding: "10px 20px",
-        border: 0,
-        borderRadius: 10,
-      }}
-    >
-      {text}
-    </button>
-  );
-};
 const App = () => {
-  const [value, setValue] = useState("Save Changes");
-  const changeValue = () => setValue("Revert Changes");
+  const [counter, setValue] = useState(0);
+  const onClick = () => setValue((prev) => prev + 1);
+  console.log("I run all the time");
+  const Once = () => {
+    console.log("once");
+  };
+  useEffect(Once, []);
   return (
     <>
-      <Btn text={value} onClick={changeValue} />
-      <Btn text="Continue" />
+      <div>
+        <h1>{counter}</h1>
+        <button onClick={onClick}>Click</button>
+      </div>
     </>
   );
 };
