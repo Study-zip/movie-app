@@ -1,33 +1,20 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useEffect, useState } from "react";
+
+const Hello = () => {
+  useEffect(() => {
+    console.log("hi :)");
+    return () => console.log("bye :<");
+  }, []);
+  return <h1>Hello</h1>;
+};
 
 const App = () => {
-  const [counter, setValue] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onClick = () => setValue((prev) => prev + 1);
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setKeyword(event.target.value);
-  };
-  useEffect(() => {
-    console.log("once");
-  }, []);
-  useEffect(() => {
-    console.log("I run when 'keyword' changes");
-  }, [keyword]);
-  useEffect(() => {
-    console.log("I run when 'counter' changes");
-  }, [counter]);
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((prev) => !prev);
   return (
     <>
-      <div>
-        <input
-          value={keyword}
-          onChange={onChange}
-          type="text"
-          placeholder="Search here"
-        ></input>
-        <h1>{counter}</h1>
-        <button onClick={onClick}>Click</button>
-      </div>
+      {showing ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </>
   );
 };
