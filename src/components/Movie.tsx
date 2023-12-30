@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 type MovieType = {
   key: string;
   title: string;
@@ -11,7 +12,9 @@ const Movie = ({ coverImg, title, summary, genres }: MovieType) => {
     <>
       <div>
         <img src={coverImg} alt={title} />
-        <h2>{title}</h2>
+        <h2>
+          <Link to="/movie">{title}</Link>
+        </h2>
         <p>{summary}</p>
         <ul>
           {genres.map((g) => (

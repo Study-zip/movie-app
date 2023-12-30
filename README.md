@@ -300,6 +300,37 @@ export default App;
 
 cleanup 함수 : destroy될 때 실행.
 
+### react-router-dom 마이그레이션
+
+react-router-dom 5 -> 6.4 (latest) 바뀐 점
+
+- Switch 컴포넌트는 지원하지 않는다.
+- Route 컴포넌트 사이에 자식 컴포넌트를 넣지 않고, element prop에 자식 컴포넌트를 할당하도록 바뀌었다.
+
+```tsx
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
+
+const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/detail",
+      element: <Detail />,
+    },
+  ]);
+  return <RouterProvider router={router} />;
+};
+
+export default App;
+```
+
+import 해야하는 함수도, 선언 방식도 변경되어서 공식 docs를 살펴보았다.
+
 ### 폴더 구조
 
 - basic : 웹 서비스 제작 전 React 기초 공부 코드를 모아둔 폴더.
