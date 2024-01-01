@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
+import "./Home.css";
 
 type MovieType = {
   id: string;
@@ -28,8 +30,19 @@ const Home = () => {
 
   return (
     <>
+      <header className="header">
+        <h1>Movie App</h1>
+        <ul className="nav">
+          <li>
+            <Link to={`/`}>HOME</Link>
+          </li>
+          <li>
+            <Link to={`/about`}>ABOUT</Link>
+          </li>
+        </ul>
+      </header>
       {loading ? (
-        <h1>Loading...</h1>
+        <p>Loading...</p>
       ) : (
         <div>
           {movies.map((movie: MovieType) => (
