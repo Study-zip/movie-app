@@ -31,20 +31,24 @@ const Home = () => {
   return (
     <>
       <header className="header">
-        <h1>Movie App</h1>
-        <ul className="nav">
-          <li>
+        <div>
+          <Link to={`/`} className="logo">
+            Movie.zip
+          </Link>
+        </div>
+        <nav className="nav">
+          <div className="nav__item">
             <Link to={`/`}>HOME</Link>
-          </li>
-          <li>
+          </div>
+          <div className="nav__item">
             <Link to={`/about`}>ABOUT</Link>
-          </li>
-        </ul>
+          </div>
+        </nav>
       </header>
       {loading ? (
-        <p>Loading...</p>
+        <p className="movie__wrap">Loading...</p>
       ) : (
-        <div>
+        <div className="movie__wrap">
           {movies.map((movie: MovieType) => (
             <Movie
               key={movie.id}

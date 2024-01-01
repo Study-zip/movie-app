@@ -11,15 +11,17 @@ type MovieType = {
 const Movie = ({ id, coverImg, title, summary, genres }: MovieType) => {
   return (
     <>
-      <div>
-        <img src={coverImg} alt={title} />
-        <h2>
+      <div className="movie">
+        <img className="movie__img" src={coverImg} alt={title} />
+        <h2 className="movie__title">
           <Link to={`/movie/${id}`}>{title}</Link>
         </h2>
-        <p>{summary}</p>
-        <ul>
+        <p className="movie__detail">{summary}</p>
+        <ul className="movie__tag-wrap">
           {genres.map((g) => (
-            <li key={g}>{g}</li>
+            <li className="movie__tag" key={g}>
+              {g}
+            </li>
           ))}{" "}
         </ul>
       </div>

@@ -1,3 +1,90 @@
+body {
+  background-color: rgb(251, 236, 217);
+}
+
 .header {
   display: flex;
+  justify-content: space-between;
+  position: fixed;
+  padding-top: 10px;
+  width: 100%;
+  background-color: rgb(251, 236, 217);
+}
+
+.logo {
+  margin-left: 20px;
+  font-size: 3rem;
+  font-family: Rubik Glitch;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav__item {
+  width: 50px;
+  height: 10px;
+  margin-right: 20px;
+  padding: 15px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  font-family: Rubik Scribble;
+}
+
+.nav__item:last-child {
+  margin-right: 40px;
+}
+
+.nav__item:hover {
+  font-family: Rubik Glitch;
+}
+
+.movie__wrap {
+  display: flex;
+  margin-left: 20px;
+  padding-top: 100px;
+  font-family: Overpass;
+}
+
+.movie {
+  height: auto;
+  margin-right: 50px;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.movie__detail {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie__img {
+  width: 200px;
+  max-height: 300px;
+  border-radius: 10px;
+}
+
+.movie__title {
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.movie__tag-wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.movie__tag {
+  display: inline-block;
+  margin: 5px 10px 0 0;
+  padding: 10px;
+  list-style: none;
+  background-color: rgb(253, 171, 83);
+  border-radius: 20px;
 }
