@@ -47,19 +47,10 @@ body {
 }
 
 .movie {
-  height: auto;
+  height: fit-content;
   margin-right: 50px;
   padding: 15px;
   background-color: #fff;
-}
-
-.movie__detail {
-  white-space: normal;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .movie__img {
